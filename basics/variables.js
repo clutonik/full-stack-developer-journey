@@ -33,6 +33,6 @@ console.log("Type of freeVariable: ".concat(typeof freeVariable));
 let undefinedVariable;
 console.log("Type of undefinedVariable: ".concat(typeof undefinedVariable));
 
-// You can declare and initialize a variable with null value (null Object)
+// You can declare and initialize a variable with null value (This returns object as it is an old bug which has been left for legacy support)
 let nullVariable = null;
 console.log("Type of nullVariable: ".concat(typeof nullVariable));
