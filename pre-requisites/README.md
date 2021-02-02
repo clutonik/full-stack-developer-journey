@@ -1,6 +1,6 @@
 # Setting up spacemacs for javascript
 
-This file covers steps/commands required to setup spacemacs for javascript development
+This file covers steps/commands required to setup spacemacs for javascript development. You can also read this on https://clutonik.medium.com/setting-up-spacemacs-for-javascript-development-ce9c91b37eba
 
 ## Installing required packages (macOS)
 
