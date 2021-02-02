@@ -13,6 +13,8 @@ Repository to document learnings throughout the journey to become a Full Stack D
 
 - Golang (Backend)
 
+- GRPC (API)
+
 - Elasticsearch (Backend for search and analytics)
 
 - Google Firebase (Database)

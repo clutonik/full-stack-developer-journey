@@ -36,3 +36,11 @@ console.log("Type of undefinedVariable: ".concat(typeof undefinedVariable));
 // You can declare and initialize a variable with null value (This returns object as it is an old bug which has been left for legacy support)
 let nullVariable = null;
 console.log("Type of nullVariable: ".concat(typeof nullVariable));
+
+// When we take user input using prompt the value returned by the function is of type String
+let userInput = prompt("Enter your age");
+console.log(typeof userInput);
+
+// You can use type conversion to store the user input as a type other than string
+let otherInput = Number(prompt("Enter your age"));
+console.log(typeof otherInput);

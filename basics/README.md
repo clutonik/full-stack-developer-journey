@@ -6,6 +6,7 @@ The sub-directories in this section covers basics learnt during the courses for 
 
 - javascript
 - golang
+- grpc
 - react
 - elasticsearch
 - firebase

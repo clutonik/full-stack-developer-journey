@@ -47,3 +47,16 @@ let result = 10 + 18 / 2; // This will not give us the right result as the opera
 console.log("Incorrect average result: ", result);
 result = (10 + 18) / 2; // This will give us the right result
 console.log("Correct average result: ", result);
+
+// Ternary Operator (The conditional operator)
+const haveLicense = false;
+haveLicense === true
+  ? console.log("You can drive")
+  : console.log("You can not drive");
+
+// Storing values to another variable using ternary operator
+const canDrive = haveLicense === true ? true : false;
+console.log(canDrive);
+
+// Using ternary operator in Template Literal
+console.log(`Can I Drive? Answer: ${haveLicense === true ? true : false}`);
