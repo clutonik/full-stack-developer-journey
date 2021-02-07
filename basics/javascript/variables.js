@@ -10,6 +10,9 @@
   This script file can be viewed in browser/editor but can only be executed once added to an HTML file through <script> tag.
 */
 
+// Use of strict mode allows us to avoid common bugs like making typos while using a declared variable
+"use strict";
+
 // Variable Declaration
 let testVariable = "Hello World!"; // Having semi-colon at the end is important for every statement in javascript
 
