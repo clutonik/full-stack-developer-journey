@@ -93,11 +93,9 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".number").textContent = secretNumber;
     updateHighScore();
     updateBgColor("body", "green");
-  } else if (guessedNumber < secretNumber) {
-    document.querySelector(".message").textContent = "Too low";
-    decreaseAndUpdateScore(".score");
-  } else if (guessedNumber > secretNumber) {
-    document.querySelector(".message").textContent = "Too High";
+  } else if (guessedNumber !== secretNumber) {
+    document.querySelector(".message").textContent =
+      guessedNumber < secretNumber ? "Too low" : "Too High";
     decreaseAndUpdateScore(".score");
   }
 });
