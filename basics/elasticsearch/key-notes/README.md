@@ -17,3 +17,16 @@
     - Having more replica shards can increase search speed but can also increase disk usage.
     - Replica shards can be changed at any time without interrupting indexing or query operations.
     
+### Performance Considerations
+
+- Elasticsearch performance depends on shard size and number of primary shards:
+    - The more shards, the more overhead to maintain indices.
+    - If the shard size is large, it takes longer to move data around during rebalancing.
+    - Querying lots of small shards makes the processing per shard faster, but more queries means more overhead.
+    - Querying a small number of larger shards might be faster.
+    - As a starting point, we should try to keep average shard size between a few GBs and a few tens of GB. 
+    - For time based data, it is common to see shards in the 20GB to 40GB range.
+    - The number of shards per GB of heap space should be less than 20.
+    
+Reference: Go through the presentation at https://www.elastic.co/elasticon/conf/2016/sf/quantitative-cluster-sizing
+    
