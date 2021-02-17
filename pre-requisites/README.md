@@ -26,3 +26,18 @@ Add javascript Layer:
                  javascript-fmt-tool 'prettier
                  javascript-fmt-on-save t
                  )```
+                 
+### Modify terminal prompt
+
+I prefer to use powerline-status as my prompt and it can be installed by using below steps:
+
+- Install powerline-status: `pip install powerline-status`
+- Install powerline-gitstatus: `pip install powerline-gitstatus`
+
+- Install powerline fonts: 
+  - `git clone https://github.com/powerline/fonts`
+  - `./install.sh`
+
+- Open your terminal preferences and select `Meslo LG L DZ` font.
+
+- Setup color schemes and gitstatus by following steps mentioned at https://www.freecodecamp.org/news/jazz-up-your-bash-terminal-a-step-by-step-guide-with-pictures-80267554cb22/
