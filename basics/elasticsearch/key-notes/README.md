@@ -30,3 +30,6 @@
     
 Reference: Go through the presentation at https://www.elastic.co/elasticon/conf/2016/sf/quantitative-cluster-sizing
     
+### Running docker inside a docker container
+
+- I will be using hadolint as dockerfile linter which will recommend me to follow best practices.
