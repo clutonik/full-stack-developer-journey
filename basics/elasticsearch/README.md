@@ -13,9 +13,6 @@ This section will be constantly updated to reflect the latest and the most impor
 - Explore Data frame Analytics
 - Explore document transform.
 
-
-  
-
 #### Portainer
 
 - I will also be using a container orchestration tool named 'portainer' to manage docker containers running on my machine. You can download it from https://documentation.portainer.io/quickstart/?hsCtaTracking=cb3a059b-7f57-4333-a92f-b06202ef8690%7C4427d7bc-1ae8-4a30-812c-d30ee496008f
