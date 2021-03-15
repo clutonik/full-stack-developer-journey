@@ -25,6 +25,15 @@
 - VPC you use to create EFS must have subnets in each availability zone you want this EFS to be available.
 - New VPC experience portal gives an option to select FS IAM policies during the EFS creation. [Read More](https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html)
 
+## S3
+
+- Securing S3 buckets.
+- S3 storage classes.
+- S3 Intelligent tiering.
+- Improving S3 performance using different key prefixes.
+- S3 Glacier.
+
+
 ## ECS
 
 - AWS Elastic Container Registry (ECR)
