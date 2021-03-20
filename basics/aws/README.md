@@ -17,6 +17,20 @@
 - EBS Storage options. 
 - EBS snapshots and EBS encryption.
 
+## VPC
+
+- Use of Internet gateway to expose an app running inside VPC.
+- Use of virtual private gateway and customer gateway.
+- Use of AWS Direct Connect.
+- Use of routes defined in route table from subnet to Internet gateway.
+- Use of security groups at instance level (stateful connections - Allows return traffic) 
+- Use of Network Access control lists at subnet level (stateless connections - Need a specific rule for return traffic)
+- Use of flow logs.
+- Range of IP addresses (class A - 10.0.0.0/8, B - 172.16.0.0/12 and C - 192.168.0.0/16)
+- Expand VPC by adding secondary IPv4 CIDR blocks.
+- Security groups only has allow rules.
+- It is important to consider rule numbers in NACLs as rule with lower number will override the rule with higher number and will be applied while filtering traffic.
+
 ## EFS
 
 - Not available in all regions and a bit hard to configure.
@@ -32,7 +46,33 @@
 - S3 Intelligent tiering.
 - Improving S3 performance using different key prefixes.
 - S3 Glacier.
+- S3 Lifecycle Management
+- S3 Versioning
+- S3 Cross Region Replication
 
+## AWS RDS
+
+- RDS Multi AZ.
+- RDS Read Replicas.
+- AWS Aurora clusters. (Upto 15 Replicas)
+- AWS Aurora Serverless.
+- AWS DynamoDB parition and sort keys.
+- DynamoDB Provisioned Capacity.
+- DynamoDB on-demand capacity.
+- Amazon Neptune. (Graph Database)
+- Amazon ElasticCache.
+- Amazon DocumentDB. (Point in time recovery)
+- Amazon timestream - Optional
+- Difference between OLAP and OLTP.
+- Tables and indexes in DynamoDB.
+- Provisioned Throughout for DynamoDB. (Read Capacity Units and Write capacity units) [Read More](https://aws.amazon.com/dynamodb/pricing/provisioned)
+- Get & update vs Atomic Counters in DynamoDB.
+- Study use cases of DynamoDB and Aurora services to get more insights into when to use what.
+- Conditional updates in DynamoDB.
+- Add TTL to items in a table in dynamoDB.
+- DynamoDB streams.
+- DynamoDB Triggers.
+- DynamoDB Accelerator (DAX)
 
 ## ECS
 
@@ -54,6 +94,11 @@
 
 # Hands-on tasks
 
+### Setting up python SDK
+
+- Install boto3 using pip.
+    - command: `pip install boto3`
+
 ### EC2
 
 - Create an EC2 instance using aws console and add an EBS volume to it. Create FS on this EBS volume and take a snapshot of this volume from AWS console. Now create another EC2 instance and add an EBS volume using the first volume's snapshot.
@@ -61,7 +106,12 @@
 - Create an EC2 instance using AWS SDK.
 - Create an EC2 instance and use EFS storage option in it. 
 
-## EFS
+### S3
+- Create an S3 bucket and setup ACL for it.
+- Create an S3 bucket and add bucket policies.
+- Create an S3 bucket using AWS CLI or SDK.
+
+### EFS
 
 - Create a mount target in an availability zone in same subnet as EC2 instance and mount it in that EC2 instance.
 - Create a mount target in an availability zone in different subnet than EC2 instance and mount it in EC2 instance.
@@ -77,3 +127,14 @@
 - Create an ECS cluster through EC2 or Fargate. (Try both)
 - Schedule an ECS task in AWS ECS.
 - Create an ECS cluster using AWS beanstalk service. 
+
+### RDS
+
+- Create an AWS Aurora RDS environment with multiple read replicas.
+- Write Load balancing logic in software to route DB requests to a different RDS instance with every new request.
+- Use HAProxy or Route 53 to load balancing for DB instances.
+- Migrate an oracle database to AWS Aurora using AWS Migration service.
+- Create a DynamoDB Table from UI and CLI/SDK.
+- Insert data to DynamoDB Table using SDK.
+- Query data from DynamoDB using JSON Query and SDK.
+- Use DAX caching service with DynamoDB in your app.
