@@ -1,2 +1,4 @@
 .DS_Store
 .log/*
+ec2-keypair.pem
+.ropeproject

@@ -1,0 +1,11 @@
+# syntax=docker/dockerfile:1.0-experimental
+# Specify fluentd docker image tag
+# You can override this version variable during docker build
+# to use a version other than the mentioned version
+# docker build --build-arg version=v1.12.1-debian-1.0 .
+ARG version=edge-debian
+
+FROM fluent/fluentd:$version as builder
+
+EXPOSE 9880
+COPY fluent.conf /fluentd/etc/
