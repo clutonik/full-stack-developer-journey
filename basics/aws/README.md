@@ -74,6 +74,17 @@
 - DynamoDB Triggers.
 - DynamoDB Accelerator (DAX)
 
+## AWS Elastic Beanstalk
+
+- Create worker environment.
+- Create web environment.
+- Deployment methodologies (in-place, blue-green)
+- EB config files (.ebextensions, .config, Dockerrun.aws.json)
+- Environment manifest file (env.yml)
+- EB - Linux Server configuration (Packages, Groups, Users, Files, Commands, Services, Container Commands)
+- EB CLI.
+- EB Custom AMI image.
+
 ## ECS
 
 - AWS Elastic Container Registry (ECR)
