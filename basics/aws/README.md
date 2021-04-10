@@ -2,20 +2,24 @@
 
 ## EC2
 
-- IAM Roles for Amazon EC2 instances. [Read More](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
-- Difference between dedicated instances and dedicated hosts.
-- EC2 Saving Plans.
-- EC2 Instance Types.
-- EC2 Bare Metal Instances.
-- EC2 Burstable performance instances. (T2/T3), T2 Unlimited mode.
-- Graviton Instance Types. (Arm cores)
-- EC2 Fleet
-- Using AMIs to create EC2 instances.
-- EBS volumes. (Stop-Hibernate)
-- EC2 Placement groups (EC2 cluster networking) 
-- Single root I/O virtualization.
-- EBS Storage options. 
-- EBS snapshots and EBS encryption.
+<details>
+    <summary>Click to expand!</summary>
+        - IAM Roles for Amazon EC2 instances. [Read More](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
+        - Difference between dedicated instances and dedicated hosts.
+        - EC2 Saving Plans.
+        - EC2 Instance Types.
+        - EC2 Bare Metal Instances.
+        - EC2 Burstable performance instances. (T2/T3), T2 Unlimited mode.
+        - Graviton Instance Types. (Arm cores)
+        - EC2 Fleet
+        - Using AMIs to create EC2 instances.
+        - EBS volumes. (Stop-Hibernate)
+        - EC2 Placement groups (EC2 cluster networking) 
+        - Single root I/O virtualization.
+        - EBS Storage options. 
+        - EBS snapshots and EBS encryption.
+        - Elastic Network Interfaces
+    </details>
 
 ## VPC
 
