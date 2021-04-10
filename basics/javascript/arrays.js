@@ -53,6 +53,7 @@ console.log(`Before swap: `, first, second)
 
 // Format on save causing issues but this is how it should be done
 // [first, second] = [second, first]
+[first, second] = [second, first]
 console.log('After swap: ', first, second)
 
 // Spread operator to create a new array using an existing array
