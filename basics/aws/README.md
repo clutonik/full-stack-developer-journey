@@ -4,6 +4,7 @@
 
 <details>
     <summary>Click to expand!</summary>
+
         - IAM Roles for Amazon EC2 instances. [Read More](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
         - Difference between dedicated instances and dedicated hosts.
         - EC2 Saving Plans.
@@ -18,8 +19,27 @@
         - Single root I/O virtualization.
         - EBS Storage options. 
         - EBS snapshots and EBS encryption.
-        - Elastic Network Interfaces
-    </details>
+        - Elastic Network Interfaces - Ability to add more network interfaces to an EC2 instance.
+             [Read More](https://aws.amazon.com/blogs/aws/new-elastic-network-interfaces-in-the-virtual-private-cloud/)
+        - Types of Load Balancers
+            - Classic(v1) - 2009 - Supports a single app
+            - Application(v2) - 2016 - Are great for Docker and ECS instances.
+            - Network(v2) - 2017 - For low latency (not part of free tier)
+            - Gateway Load balancer(v2) - 2020
+            - Internal and external load balancers
+        - Security groups for Load balancer and Application
+        - Healthchecks in load balancers.
+        - CloudWatch metrics for load balancers.
+        - Cross zone load balancing.
+        - Auto-scaling groups
+            - Configuration
+            - Scaling policies
+                - Target Tracking Scaling
+                - Simple/Step Scaling
+                - Scheduled Actions
+            - Scaling cooldowns
+
+</details>
 
 ## VPC
 
