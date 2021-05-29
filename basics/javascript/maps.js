@@ -46,3 +46,8 @@ const student = new Map([
   ['Age', 30]])
 
 console.log(student);
+
+// forEach() method to loop over map elements
+student.forEach(function(element, key, map){
+    console.log(`key: ${key}, value: ${element} in map: ${map}`)
+})
