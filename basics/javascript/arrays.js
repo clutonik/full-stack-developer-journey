@@ -53,8 +53,8 @@ console.log(`Before swap: `, first, second)
 
 // Format on save causing issues but this is how it should be done
 // [first, second] = [second, first]
-[first, second] = [second, first]
-console.log('After swap: ', first, second)
+// [first, second] = [second, first]
+console.log(`After swap: `, first, second)
 
 // Spread operator to create a new array using an existing array
 const newTestArray = [1, ...testArray]
@@ -70,3 +70,17 @@ const [x, y, z, ...more] = [1, 2, 3, 4, 5, 6, 7]
 // This now will assign values to variables a, b, c and more (array)
 // more is of type array
 console.log(x, y, z, more)
+
+// Create shallow copy of an array using slice() method
+const sliceArray = [2,3,4,54,55]
+console.log(`Sliced array: ${sliceArray.slice(2,4)}`)
+
+// Using splice() method to remove elements from an array
+// splice() method creates a shallow copy just like slice() but it modifies the original array
+// by deleting the elements.
+// second argument to splice() method is the number of values we want to delete
+// Example:
+const spliceArray = [2,3,4,54,55]
+console.log(`Spliced array: ${spliceArray.splice(2,2)}`)
+console.log(`Original Array after splice method: ${spliceArray}`)
+
