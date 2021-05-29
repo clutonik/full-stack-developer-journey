@@ -84,3 +84,37 @@ const spliceArray = [2,3,4,54,55]
 console.log(`Spliced array: ${spliceArray.splice(2,2)}`)
 console.log(`Original Array after splice method: ${spliceArray}`)
 
+// Using Reverse() method on array
+// Example:
+const reverseArray = [2,3,4,54,55]
+console.log(`Original array: ${reverseArray}`)
+console.log(`Reversed array: ${reverseArray.reverse()}`)
+
+// Concatenate two arrays
+// concat() method does not modify original array
+// Example
+const concatArray1 = [1,2]
+const concatArray2 = [3,4]
+console.log(`Concatenated array: ${concatArray1.concat(concatArray2)}`)
+
+// Join array elements into one string
+// join() method modifies original array
+const joinArray = [1,2,3,4]
+console.log(`Array elements joined using a '-': ${joinArray.join('-')}`)
+
+// forEach() high-order function to loop over array elements
+// this method accepts a callback function as argument.
+// forEach() method passes extra information to the callback function
+// apart from just the element. This extra information includes 
+// element index and original array.
+// Continue and break statements do not work with forEach() method.
+const loopedArray = [1,2,3,4]
+
+loopedArray.forEach(function(element) { // naming the element being looped over
+    console.log(`Looking at item: ${element}`)
+})
+
+// Accessing index and array
+loopedArray.forEach(function(element, i, arr) { // the order of these args is important
+    console.log(`Looking at item: ${element} at ${i} of ${arr}`)
+})

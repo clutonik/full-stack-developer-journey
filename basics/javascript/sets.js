@@ -52,5 +52,13 @@ const uniqueDaysArray = [...daysSet]
 console.log(uniqueDaysArray)
 
 // Delete all elements
-daysSet.clear()
+// daysSet.clear()
 console.log(daysSet)
+
+// forEach() for looping over elements in set
+// forEach() in sets do not pass any index to callback function as
+// sets do not have any index or key.
+daysSet.forEach(function(value, _, map){
+    console.log(`value: ${value}`)
+})
+
