@@ -118,3 +118,17 @@ loopedArray.forEach(function(element) { // naming the element being looped over
 loopedArray.forEach(function(element, i, arr) { // the order of these args is important
     console.log(`Looking at item: ${element} at ${i} of ${arr}`)
 })
+
+// Using map() method to create a new array
+const mapArray = [1,2,3,4,5]
+
+const doubledArray = mapArray.map(function(element){
+    return element * 2
+})
+
+// Using map() method with arrow function
+const doubledArrayUsingArrow = mapArray.map(element => element * 2)
+
+console.log(`Original array before using map method: ${mapArray}`)
+console.log(`Doubled array using map method: ${doubledArray}`)
+console.log(`Doubled array using array function in map method: ${doubledArrayUsingArrow}`)
