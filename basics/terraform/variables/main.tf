@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "3.68.0"
+    }
+  }
+}
+
 provider "aws" {
   region = "us-east-1"
 }
@@ -32,10 +41,10 @@ variable "map_type" {
   }
 }
 
-variable "input_type" {
-  type        = string
-  description = "Specify the input type"
-}
+# variable "input_type" {
+#   type        = string
+#   description = "Specify the input type"
+# }
 
 resource "aws_vpc" "foo" {
   cidr_block = "10.0.0.0/16"
@@ -45,6 +54,15 @@ resource "aws_vpc" "foo" {
     Map  = var.map_type["key3"]
     Map2 = var.map_type[4]
   }
+}
+
+variable "instance_type" {
+  type    = string
+}
+
+resource "aws_instance" "test_instance_using_vars" {
+  ami = "ami-c5eabb87"
+  instance_type = var.instance_type
 }
 
 output "vpc_id" {
