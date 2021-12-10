@@ -1,0 +1,35 @@
+---
+Parameters:
+  ClutonikAvailabilityZone:
+    Description: Specify availability-zone for your resources
+    Type: String
+    Default: us-east-1a
+  ClutonikEnvironment:
+    Description: Specify the environment
+    Type: String
+    Default: dev
+
+Mappings:
+  RegionAMIMap:
+    us-east-1:
+      "64": "ami-04902260ca3d33422"
+
+Conditions:
+  CreateDevResources: !Equals [!Ref ClutonikEnvironment, dev]
+
+Resources:
+  CloudformationInstance:
+      Type: AWS::EC2::Instance
+      Properties:
+        # KeyName: test-ec2-keypair
+        ImageId: ami-04902260ca3d33422
+        ImageId: !FindInMap [RegionAMIMap, !Ref AWS::Region, 64]
+        InstanceType: t2.micro
+        AvailabilityZone: !Ref ClutonikAvailabilityZone
+        Tags:
+          - Key: clutonik:environment 
+            Value: dev
+            # Using Cloud formation pseudo-parameters
+          - Key: clutonk:region
+            Value: !Ref AWS::Region
+      Condition: CreateDevResources

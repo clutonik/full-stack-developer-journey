@@ -2,44 +2,39 @@
 
 ## EC2
 
-<details>
-    <summary>Click to expand!</summary>
-
-        - IAM Roles for Amazon EC2 instances. [Read More](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
-        - Difference between dedicated instances and dedicated hosts.
-        - EC2 Saving Plans.
-        - EC2 Instance Types.
-        - EC2 Bare Metal Instances.
-        - EC2 Burstable performance instances. (T2/T3), T2 Unlimited mode.
-        - Graviton Instance Types. (Arm cores)
-        - EC2 Fleet
-        - Using AMIs to create EC2 instances.
-        - EBS volumes. (Stop-Hibernate)
-        - EC2 Placement groups (EC2 cluster networking) 
-        - Single root I/O virtualization.
-        - EBS Storage options. 
-        - EBS snapshots and EBS encryption.
-        - Elastic Network Interfaces - Ability to add more network interfaces to an EC2 instance.
-             [Read More](https://aws.amazon.com/blogs/aws/new-elastic-network-interfaces-in-the-virtual-private-cloud/)
-        - Types of Load Balancers
-            - Classic(v1) - 2009 - Supports a single app
-            - Application(v2) - 2016 - Are great for Docker and ECS instances.
-            - Network(v2) - 2017 - For low latency (not part of free tier)
-            - Gateway Load balancer(v2) - 2020
-            - Internal and external load balancers
-        - Security groups for Load balancer and Application
-        - Healthchecks in load balancers.
-        - CloudWatch metrics for load balancers.
-        - Cross zone load balancing.
-        - Auto-scaling groups
-            - Configuration
-            - Scaling policies
-                - Target Tracking Scaling
-                - Simple/Step Scaling
-                - Scheduled Actions
-            - Scaling cooldowns
-
-</details>
+- IAM Roles for Amazon EC2 instances. [Read More](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
+- Difference between dedicated instances and dedicated hosts.
+- EC2 Saving Plans.
+- EC2 Instance Types. Website to compare EC2 instance types: [Click here](https://ec2instances.info/).
+- EC2 Bare Metal Instances.
+- EC2 Burstable performance instances. (T2/T3), T2 Unlimited mode.
+- Graviton Instance Types. (Arm cores)
+- EC2 Fleet
+- Using AMIs to create EC2 instances.
+- EBS volumes. (Stop-Hibernate)
+- EC2 Placement groups (EC2 cluster networking)
+- Single root I/O virtualization.
+- EBS Storage options.
+- EBS snapshots and EBS encryption.
+- Elastic Network Interfaces - Ability to add more network interfaces to an EC2 instance.
+  [Read More](https://aws.amazon.com/blogs/aws/new-elastic-network-interfaces-in-the-virtual-private-cloud/)
+- Types of Load Balancers
+  - Classic(v1) - 2009 - Supports a single app
+  - Application(v2) - 2016 - Are great for Docker and ECS instances.
+  - Network(v2) - 2017 - For low latency (not part of free tier)
+  - Gateway Load balancer(v2) - 2020
+  - Internal and external load balancers
+- Security groups for Load balancer and Application
+- Healthchecks in load balancers.
+- CloudWatch metrics for load balancers.
+- Cross zone load balancing.
+- Auto-scaling groups
+  - Configuration
+  - Scaling policies
+    - Target Tracking Scaling
+    - Simple/Step Scaling
+    - Scheduled Actions
+  - Scaling cooldowns
 
 ## VPC
 
@@ -47,7 +42,7 @@
 - Use of virtual private gateway and customer gateway.
 - Use of AWS Direct Connect.
 - Use of routes defined in route table from subnet to Internet gateway.
-- Use of security groups at instance level (stateful connections - Allows return traffic) 
+- Use of security groups at instance level (stateful connections - Allows return traffic)
 - Use of Network Access control lists at subnet level (stateless connections - Need a specific rule for return traffic)
 - Use of flow logs.
 - Range of IP addresses (class A - 10.0.0.0/8, B - 172.16.0.0/12 and C - 192.168.0.0/16)
@@ -115,13 +110,12 @@
 - ECS Task Definition.
 - ECS Cluster and AWS Elastic Beanstalk [Read More](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/clusters.html)
 
-
 ## Security(IAM)
 
 - Resource based vs IAM based policies. [Read More](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html)
 - SAML and Identity broker applications. [Read More](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_federated-users.html)
-- IAM best practices. [Read More](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) 
-- AWS KMS. 
+- IAM best practices. [Read More](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+- AWS KMS.
 
 ## AWS Support
 
@@ -132,16 +126,17 @@
 ### Setting up python SDK
 
 - Install boto3 using pip.
-    - command: `pip install boto3`
+  - command: `pip install boto3`
 
 ### EC2
 
 - Create an EC2 instance using aws console and add an EBS volume to it. Create FS on this EBS volume and take a snapshot of this volume from AWS console. Now create another EC2 instance and add an EBS volume using the first volume's snapshot.
 - Create an EC2 instance using AWS CLI.
 - Create an EC2 instance using AWS SDK.
-- Create an EC2 instance and use EFS storage option in it. 
+- Create an EC2 instance and use EFS storage option in it.
 
 ### S3
+
 - Create an S3 bucket and setup ACL for it.
 - Create an S3 bucket and add bucket policies.
 - Create an S3 bucket using AWS CLI or SDK.
@@ -161,7 +156,7 @@
 - Create an ECS task definition targeting AWS Farget(serverless)
 - Create an ECS cluster through EC2 or Fargate. (Try both)
 - Schedule an ECS task in AWS ECS.
-- Create an ECS cluster using AWS beanstalk service. 
+- Create an ECS cluster using AWS beanstalk service.
 
 ### RDS
 
