@@ -34,3 +34,7 @@
 - when you are using terraform infrastructure, you also need to provide your AWS ACCESS KEY and SECRET KEY as environment variables.
 
   - ![workspace variables](images/workspace-variables.png)
+
+## Projects to do
+
+- Install ECE using Terraform and ansible in AWS
