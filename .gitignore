@@ -4,3 +4,4 @@ ec2-keypair.pem
 .ropeproject
 .terraform*
 terraform.tfstate*
+venv/*
