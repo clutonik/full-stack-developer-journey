@@ -57,8 +57,8 @@ resource "aws_security_group" "allow_ssh" {
 resource "aws_instance" "test" {
   ami             = "ami-0ed9277fb7eb570c9"
   instance_type   = var.instance_type
-  # security_groups = [aws_security_group.allow_ssh.name]
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+
   key_name        = "test-ec2-keypair"
 
 
@@ -77,10 +77,12 @@ resource "aws_instance" "test" {
   provisioner "local-exec" {
     command = "ansible-playbook -i ${self.public_ip}, httpd.yml --private-key ~/.ssh/test-ec2-keypair.pem -u ec2-user"
 
+
     # You can also specify environment variables if needed by ansible
     # environment = {
     #   KEY = "value"
     #  }
+
   }
 
 }
