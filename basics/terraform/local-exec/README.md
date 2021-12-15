@@ -10,4 +10,16 @@ This code here represents how we can leverage the local-exec provisioner to run 
 
 ### example-02
 
--
+- example-02 provisions a new EC2 instance and installs HTTPD on it using ansible.
+
+### Key points
+
+- local-exec allows you to specify:
+  - environment variables
+  - interpreter
+  - command
+  - working directory
+
+## References
+
+- [local-exec](https://www.terraform.io/docs/language/resources/provisioners/local-exec.html)
