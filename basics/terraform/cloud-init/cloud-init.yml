@@ -1,0 +1,9 @@
+#cloud-config
+packages:
+  - httpd
+  - python3
+
+runcmd:
+  - echo 'Hello World' > /var/www/html/index.html
+  - systemctl enable httpd
+  - systemctl start httpd
