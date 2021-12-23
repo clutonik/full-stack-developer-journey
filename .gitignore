@@ -6,3 +6,5 @@ ec2-keypair.pem
 terraform.tfstate*
 **/venv/
 venv/
+.vagrant
+*.log
