@@ -77,3 +77,11 @@ resource "aws_instance" "test" {
   key_name               = "test-ec2-keypair"
   user_data              = data.template_file.cloud_init.rendered
 }
+
+
+resource "null_resource" "status" {
+  depends_on = [aws_instance.test]
+  provisioner "local-exec" {
+    command = "aws ec2 wait instance-status-ok --instance-ids ${aws_instance.test.id}"
+  }
+}
