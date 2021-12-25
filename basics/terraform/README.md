@@ -6,6 +6,7 @@
 - [Terraform state file](#terraform-state-file)
 - [Terraform Cloud workspaces](#terraform-cloud-workspaces)
 - [Terraform attributes as blocks](#terraform-attributes-as-blocks)
+- [Examples](#examples)
 - [Projects TO-DO](#projects-to-do)
 
 ## Introduction to Terraform
@@ -103,6 +104,18 @@ ingress = [
 ```
 
 `Note`: If you want to read more, [Click here](https://www.terraform.io/language/attr-as-blocks)
+
+## Examples
+
+- [First resource](first-resource/main.tf)
+- [AWS EC2](aws-ec2/main.tf)
+- [Variables](variables/main.tf)
+- [Cloud Init](cloud-init/main.tf)
+- Provisioners:
+  - [local-exec](local-exec/README.md)
+  - [remote-exec](remote-exec/README.md)
+  - [null resource](null-resource/README.md)
+- [remote-backend](remote-backend/main.tf)
 
 ## Projects to do
 
