@@ -2,6 +2,12 @@
 
 This code here represents how we can leverage the local-exec provisioner to run a command on the local machine or a set of instructions using a configuration management tool like Ansible, chef or puppet.
 
+These examples use aws_provider to provision infrastructure in AWS.
+
+### Default VPC
+
+My examples use `aws_default_vpc` resource type which allows us to use default VPC created by AWS in our code. This resource does not manage the default VPC and only allow us to refer it. [Read More](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_vpc)
+
 ### example-01
 
 - The example code here `main.tf` is a simple example of how to use the local-exec provisioner.

@@ -33,13 +33,15 @@ resource "aws_security_group" "allow_ssh" {
   vpc_id      = aws_default_vpc.default.id
 
   ingress {
+    description = "Ingress rule for SSH"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"] # Keeping this only for development purposes.
   }
 
   ingress {
+    description = "Ingress rule for HTTP access"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -55,11 +57,11 @@ resource "aws_security_group" "allow_ssh" {
 }
 
 resource "aws_instance" "test" {
-  ami             = "ami-0ed9277fb7eb570c9"
-  instance_type   = var.instance_type
+  ami                    = "ami-0ed9277fb7eb570c9"
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 
-  key_name        = "test-ec2-keypair"
+  key_name = "test-ec2-keypair"
 
 
   provisioner "remote-exec" {
@@ -76,13 +78,10 @@ resource "aws_instance" "test" {
   }
   provisioner "local-exec" {
     command = "ansible-playbook -i ${self.public_ip}, httpd.yml --private-key ~/.ssh/test-ec2-keypair.pem -u ec2-user"
-
-
     # You can also specify environment variables if needed by ansible
     # environment = {
     #   KEY = "value"
     #  }
-
   }
 
 }

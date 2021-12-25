@@ -32,19 +32,30 @@ resource "aws_security_group" "allow_ssh" {
   description = "allow ssh access"
   vpc_id      = aws_default_vpc.default.id
 
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  ingress = [
+    {
+      description      = "SSH access"
+      from_port        = 22
+      to_port          = 22
+      protocol         = "tcp"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = ["::/0"]
+      prefix_list_ids  = []
+      security_groups  = []
+      self             = false
+    },
+    {
+      description      = "HTTP access"
+      from_port        = 80
+      to_port          = 80
+      protocol         = "tcp"
+      cidr_blocks      = ["0.0.0.0/0"]
+      ipv6_cidr_blocks = ["::/0"]
+      prefix_list_ids  = []
+      security_groups  = []
+      self             = false
+    }
+  ]
 
   egress {
     from_port   = 0
@@ -60,9 +71,9 @@ data "template_file" "cloud_init" {
 }
 
 resource "aws_instance" "test" {
-  ami             = "ami-0ed9277fb7eb570c9"
-  instance_type   = var.instance_type
+  ami                    = "ami-0ed9277fb7eb570c9"
+  instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-  key_name        = "test-ec2-keypair"
-  user_data       = data.template_file.cloud_init.rendered
+  key_name               = "test-ec2-keypair"
+  user_data              = data.template_file.cloud_init.rendered
 }

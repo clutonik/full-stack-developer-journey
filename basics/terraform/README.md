@@ -1,9 +1,29 @@
-# VS Code Plugins
+# Table of Contents
 
-- Terraform autocomplete
-- Hashicorp Terraform
+- [Introduction to Terraform](#introduction-to-terraform)
+- [Setup VS Code](#setup-vs-code)
+- [Basic Terraform Commands](#basic-terraform-commands)
+- [Terraform state file](#terraform-state-file)
+- [Terraform Cloud workspaces](#terraform-cloud-workspaces)
+- [Terraform attributes as blocks](#terraform-attributes-as-blocks)
+- [Projects TO-DO](#projects-to-do)
 
-# Terraform
+## Introduction to Terraform
+
+Terraform is a tool for building, deploying, and managing infrastructure as code. It uses HCL (HashiCorp's Configuration Language) to describe the infrastructure to build.
+
+Although it is primarily used for provisioning/managing infrastructure in public cloud, but you can use it to manage almost any resource which has an API to expose to Terraform. i.e. you can use terraform to create/manage a website resource like products as well i.e. if you have an API which creates/updates/deletes a product, you can write your own terraform provider to manage that product.
+
+## Setup VS Code
+
+Install the extensions listed below to get started with Terraform.
+
+<ol>
+  <li>Terraform autocomplete</li>
+  <li>Hashicorp Terraform</li>
+</ol>
+
+## Basic Terraform Commands
 
 - Command to run initialize project: `terraform init`
 - Command to check what changes terraform will make: `terraform plan`
@@ -35,6 +55,57 @@
 
   - ![workspace variables](images/workspace-variables.png)
 
+## Terraform Attributes as blocks
+
+Terraform has an interesting aspect about how it traverses attributes within a resource. Lets look at below code for a behavior which was hard to figure out for me in the beginning.
+
+`Snippet-1`: This snippet uses a regular attribute declaration method but the thing to notice is the requirement to declare multiple ingress rules/attribute. Declaring attributes in terraform this way allows us to avoid the optional values needed by the resource i.e. fields like `description` can be ignored in this example.
+
+```
+ingress = {
+      description = "SSH access"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+
+ingress = {
+      description = "HTTP access"
+      from_port   = 80
+      to_port     = 80
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+```
+
+`Snippet-2`: This snippet uses a collection i.e. a list of similar attributes. So, rather than declaring multiple resource attributes one by one as shown in Snippet-1, we can specify them as list and this is the recommended way. But the caveat here is, if we use a list to define these attributes, we will have to specify the values for optional fields as well. If we do not do this, then we can get an error like:
+
+`ERROR`: <p>Inappropriate value for attribute "ingress": element 0: attributes "ipv6_cidr_blocks", "prefix_list_ids", "security_groups", and "self" are required.</p>
+
+```
+ingress = [
+    {
+      description = "SSH access"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    },
+    {
+      description = "HTTP access"
+      from_port   = 80
+      to_port     = 80
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  ]
+```
+
+`Note`: If you want to read more, [Click here](https://www.terraform.io/language/attr-as-blocks)
+
 ## Projects to do
 
-- Install ECE using Terraform and ansible in AWS
+- Manage an ECE installation using Terraform and ansible in AWS
+- Create Elasticsearch clusters in ECE using terraform provider.
+- Create a custom terraform provider.
