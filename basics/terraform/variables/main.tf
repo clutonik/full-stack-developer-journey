@@ -57,11 +57,16 @@ resource "aws_vpc" "foo" {
 }
 
 variable "instance_type" {
-  type    = string
+  type      = string
+  sensitive = true # This redacts the value from the logs/plan commands
+  validation {
+    condition     = can(regex("^t2.*", var.instance_type))
+    error_message = "Instance type must be a t2 instance only."
+  }
 }
 
 resource "aws_instance" "test_instance_using_vars" {
-  ami = "ami-c5eabb87"
+  ami           = "ami-c5eabb87"
   instance_type = var.instance_type
 }
 

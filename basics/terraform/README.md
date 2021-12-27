@@ -1,12 +1,20 @@
-# Table of Contents
+# Terraform
+
+My notes about Terraform. This was created when I was preparing for my Terraform associate exam.
+
+## Table of Contents
 
 - [Introduction to Terraform](#introduction-to-terraform)
 - [Setup VS Code](#setup-vs-code)
-- [Basic Terraform Commands](#basic-terraform-commands)
+- [Terraform Commands](commands/README.md)
 - [Terraform state file](#terraform-state-file)
+- [Terraform Resource behavior](#terraform-resource-behavior)
+- [Terraform Logs](#terraform-logs)
 - [Terraform Cloud workspaces](#terraform-cloud-workspaces)
 - [Terraform attributes as blocks](#terraform-attributes-as-blocks)
 - [Examples](#examples)
+- [References](#references)
+- [Things To Explore](#things-to-explore)
 - [Projects TO-DO](#projects-to-do)
 
 ## Introduction to Terraform
@@ -24,26 +32,31 @@ Install the extensions listed below to get started with Terraform.
   <li>Hashicorp Terraform</li>
 </ol>
 
-## Basic Terraform Commands
-
-- Command to run initialize project: `terraform init`
-- Command to check what changes terraform will make: `terraform plan`
-  - This will show you what changes will be made to your infrastructure
-  - This will create a state file which terraform uses to keep track of your infrastructure
-  - We can use -out to save the plan to a file
-- Command to apply changes: `terraform apply`
-  - If you want to execute a saved plan, use terraform apply "plan.tfplan"
-- Command to refresh your state file: `terraform refresh`
-  - This will refresh your state file with the latest changes
-  - It does not remove anything but adds additional information from infrastructure
-- Command to print outputs of your infrastructure: `terraform output`
-- Command to destroy your infrastructure: `terraform destroy`
-
 ## Terraform state file
 
 - The state file is a json file that contains all of the information about your infrastructure
 - this file is named as terraform.tfstate
 - The state file is saved in the root of your project
+
+## Terraform Resource Behavior
+
+Terraform will perform one of the below operations based on the changes you make to your configuration files.
+
+- **Create**: Creates a resource which does not exists.
+- **Destroy**: Destroys a resource which exists.
+- **Update in-place**: Updates a resource which exists and whose arguments have changed in your configuration files.
+- **Destroy and re-create**: Resources whose arguments have changed but can not be updated in-place because of remote API restrictions/limitations.
+
+## Terraform Logs
+
+You can enable terraform logs by exporting the following environment variables.
+
+- `TF_LOG`=TRACE
+- `TF_LOG_PATH`=./terraform.log
+- `TF_LOG_CORE`=TRACE
+- `TF_LOG_PROVIDER`=TRACE
+
+Supported Log Levels are: `TRACE, DEBUG, INFO, WARN, ERROR, and JSON`.
 
 ## Terraform Cloud Workspaces
 
@@ -62,7 +75,7 @@ Terraform has an interesting aspect about how it traverses attributes within a r
 
 `Snippet-1`: This snippet uses a regular attribute declaration method but the thing to notice is the requirement to declare multiple ingress rules/attribute. Declaring attributes in terraform this way allows us to avoid the optional values needed by the resource i.e. fields like `description` can be ignored in this example.
 
-```
+```hcl
 ingress = {
       description = "SSH access"
       from_port   = 22
@@ -84,7 +97,7 @@ ingress = {
 
 `ERROR`: <p>Inappropriate value for attribute "ingress": element 0: attributes "ipv6_cidr_blocks", "prefix_list_ids", "security_groups", and "self" are required.</p>
 
-```
+```hcl
 ingress = [
     {
       description = "SSH access"
@@ -111,11 +124,24 @@ ingress = [
 - [AWS EC2](aws-ec2/main.tf)
 - [Variables](variables/main.tf)
 - [Cloud Init](cloud-init/main.tf)
-- Provisioners:
+- **Provisioners**:
   - [local-exec](local-exec/README.md)
   - [remote-exec](remote-exec/README.md)
   - [null resource](null-resource/README.md)
 - [remote-backend](remote-backend/main.tf)
+- [data sources](data-sources/README.md)
+- [Meta Arguments](meta-arguments/README.md)
+- [Outputs](outputs/README.md)
+- [Modules](modules/README.md)
+
+## References
+
+- [Youtube course by Andrew Brown](https://www.youtube.com/watch?v=V4waklkBC38&t=9349s)
+
+## Things to explore
+
+- [Terragrunt](https://terragrunt.gruntwork.io/)
+  - Terragrunt helps to improve the speed of your Terraform deployment i.e. it creates a different state file for all modules in your project.
 
 ## Projects to do
 
