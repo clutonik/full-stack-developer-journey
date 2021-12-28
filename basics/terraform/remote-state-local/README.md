@@ -12,6 +12,10 @@ resource "aws_vpc" "vpc" {
   ....
   ....
 }
+
+output "subnet_id" {
+  value = "${aws_vpc.vpc.subnet_id}"
+}
 ```
 
 **State-2(compute)**:
@@ -27,7 +31,7 @@ data "terraform_remote_state" "network" {
 resource "aws_instance" "instance" {
     ami = "ami-12345678"
     instance_type = "t2.micro"
-    aws_vpc_id = data.terraform_remote_state.network.vpc.id
+    aws_vpc_id = data.terraform_remote_state.network.outputs.subnet_id
     tags = {
         Name = "Server-${count.index}"
     }
