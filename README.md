@@ -4,28 +4,29 @@ Repository to document learnings throughout the journey to become a Full Stack D
 
 ## Udemy and youtube Courses
 
-- Udemy.com/course/the-complete-javascript-course
+- **Javascript**: https://udemy.com/course/the-complete-javascript-course
+- **Terraform**: https://youtu.be/V4waklkBC38
 
-### Technologies
+## Technologies
 
-- Reactjs (Frontend)
+- Terraform (Cloud Infrastructure) - `Done`
+- Data Structures and Algorithms - `In Progress`
+- Python (FastAPI backend) - `In Progress`
+- Docker (Containerization) - `In Progress`
+- Kubernetes (Deployment) - `pending`
+- Prometheus (Monitoring) - `pending`
+- Elasticsearch (Backend for search and analytics) - `pending`
+- Golang (Backend) - `pending`
+- Reactjs (Frontend) - `pending`
+- GRPC (API) - `pending`
+- Google Firebase (Database) - `pending`
+- Consul (Service Discovery) - `pending`
+- Jenkins (CI/CD) - `pending`
+- Gitlab CI (CI/CD) - `pending`
 
-- Golang (Backend)
+## Habits
 
-- GRPC (API)
-
-- Elasticsearch (Backend for search and analytics)
-
-- Google Firebase (Database)
-
-- Docker (Containerization)
-
-- Kubernetes (Deployment)
-
-- Consul (Service Discovery)
-
-- Terraform (Cloud Infrastructure)
-
-- Jenkins (CI/CD)
-
-- Gitlab CI (CI/CD)
+- **Write few lines of code every day**.
+- **Write an article every week**.
+- **Solve a leetcode problem every day**.
+- **Enjoy a couple of beers with friends every week**.
