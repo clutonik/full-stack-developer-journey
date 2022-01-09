@@ -8,3 +8,4 @@ terraform.tfstate*
 venv/
 .vagrant
 *.log
+*.pyc
