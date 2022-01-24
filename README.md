@@ -13,6 +13,7 @@ Repository to document learnings throughout the journey to become a Full Stack D
 - Data Structures and Algorithms - `In Progress`
 - Python (FastAPI backend) - `In Progress`
 - Docker (Containerization) - `In Progress`
+- PostgreSQL (Database) - `In Progress`
 - Kubernetes (Deployment) - `pending`
 - Prometheus (Monitoring) - `pending`
 - Elasticsearch (Backend for search and analytics) - `pending`

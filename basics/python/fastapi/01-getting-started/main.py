@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI, Response, status
+from fastapi import FastAPI, Response, status, HTTPException
 from fastapi.params import Body
 from pydantic import BaseModel
 
@@ -53,6 +53,25 @@ def get_product(id: int, response: Response):
     """
     product = find_product(id)
     if product is None:
-        response.status_code = status.HTTP_404_NOT_FOUND
-        return {"detail": "Product not found"}
+        raise HTTPException(status_code=404, detail="Product not found")
     return {"data": find_product(id)}
+
+@app.get("/products")
+def get_products():
+    """
+    HTTP GET /products
+    """
+    return {"data": products}
+
+
+@app.delete("/products/{id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_product(id: int):
+    """
+    HTTP DELETE /products/{product_id}
+    """
+    product = find_product(id)
+    if product is None:
+        raise HTTPException(status_code=404, detail="Product not found")
+    
+    products.pop(products.index(product))
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
